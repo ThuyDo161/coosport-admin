@@ -1,18 +1,14 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <div class="home"></div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class HomeView extends Vue {}
+const { t } = useI18n();
+
+onMounted(() => {
+  document.title = t("menuitems.home");
+});
 </script>
